@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com-otp-generator" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+  <name>OtpGenerator</name>
+  <js-module name="OtpGenerator" src="www/OtpGenerator.js">
+    <clobbers target="otpgenerator" />
+  </js-module>
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="OtpGenerator">
+        <param name="ios-package" value="OtpGenerator" />
+      </feature>
+    </config-file>
+    <source-file src="src/ios/OtpGenerator.swift" />
+  </platform>
+  <platform name="android">
+    <framework src="commons-codec:commons-codec:1.10" />
+    <framework src="com.android.support:support-v4:21.0.3" />
+    <config-file parent="/*" target="res/xml/config.xml">
+      <feature name="OtpGenerator">
+        <param name="android-package" value="com.otp.plugins.OtpGenerator" />
+      </feature>
+    </config-file>
+    <!--<config-file parent="/manifest" target="AndroidManifest.xml">
+    </config-file>
+    <config-file parent="/manifest/application" target="AndroidManifest.xml">
+    </config-file>-->
+    <source-file src="src/android/OtpGenerator.java" target-dir="src/com/otp/plugins" />
+    <source-file src="src/android/HOTP.java" target-dir="src/com/otp/generator" />
+    <source-file src="src/android/TOTP.java" target-dir="src/com/otp/generator" />
+  </platform>
+</plugin>

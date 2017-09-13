@@ -1,0 +1,19 @@
+{
+  "name": "cordova-plugin-otp",
+  "version": "1.0.0",
+  "description": "This cordova plugin will create the ability decipher a one-time passcode via TOTP or HOTP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoMo1970/cordova-plugin-otp.git"
+  },
+  "author": "John Moline",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoMo1970/cordova-plugin-otp/issues"
+  },
+  "homepage": "https://github.com/JoMo1970/cordova-plugin-otp#readme"
+}
