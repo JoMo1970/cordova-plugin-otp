@@ -42,8 +42,12 @@ public class OtpGenerator extends CordovaPlugin {
         Log.i(TAG, "Otp Invoked");
 
         //get the secret key
-        String secret = ((JSONObject)args.get(0)).getString("secret").replace(" ", "").toUpperCase();
-        Log.i(TAG, "Secret code retrieved - " + secret);
+        String secretPayload = ((JSONObject)args.get(0)).getString("secret").replace(" ", "").toUpperCase();
+        Log.i(TAG, "Secret payload code retrieved - " + secretPayload);
+
+        //process the secret payload
+        String secret = (((((secretPayload.split("\\?"))[1]).split("&"))[0]).split("="))[1];
+        Log.i(TAG, "Secret code processed: " + secret);
 
         //generate the otp
         long time = (System.currentTimeMillis() / 1000) / 30;

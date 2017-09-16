@@ -11,6 +11,12 @@
       </feature>
     </config-file>
     <source-file src="src/ios/OtpGenerator.swift" />
+    <!--<source-file src="src/ios/HOTP.swift" />
+    <source-file src="src/ios/TOTP.swift" />
+    <source-file src="src/ios/Base32.swift" />-->
+    <pods-config ios-min-version="9.0" use-frameworks="true">
+    </pods-config>
+    <pod name="OneTimePassword" />
   </platform>
   <platform name="android">
     <framework src="commons-codec:commons-codec:1.10" />
