@@ -15,14 +15,7 @@ import java.security.InvalidKeyException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-/**
- * This class contains static methods that are used to calculate the
- * One-Time Password (OTP) using
- * JCE to provide the HMAC-SHA-1.
- *
- * @author Loren Hart
- * @version 1.0
- */
+
 public class HOTP {
     private HOTP() {}
 
