@@ -45,17 +45,20 @@ public class OtpGenerator extends CordovaPlugin {
         String secretPayload = ((JSONObject)args.get(0)).getString("secret").replace(" ", "").toUpperCase();
         Log.i(TAG, "Secret payload code retrieved - " + secretPayload);
 
+        //get the pin size
+        int pinSize = Integer.parseInt(((JSONObject)args.get(0)).getString("pinsize"));
+
         //process the secret payload
         String secret = (((((secretPayload.split("\\?"))[1]).split("&"))[0]).split("="))[1];
         Log.i(TAG, "Secret code processed: " + secret);
 
         //generate the otp
-        long time = (System.currentTimeMillis() / 1000) / 30;
-        Log.i("initOtpCreation", "OTP Time Stamp Created - " + time);
+        long movingnumber = Long.valueOf(((JSONObject)args.get(0)).getString("movingnumber")).longValue();
+        Log.i(TAG, "OTP Moving Number Created - " + movingnumber);
         String normalizedBase32Key = secret.replace(" ", "").toUpperCase();
-        Base32 base32 = new Base32();
-        byte[] bytes = base32.decode(normalizedBase32Key);
-        String otp = HOTP.generateOTP(bytes, time, 6, false, 15);
+        //Base32 base32 = new Base32();
+        //byte[] bytes = base32.decode(normalizedBase32Key);
+        String otp = HOTP.generateOTP(normalizedBase32Key, movingnumber, pinSize, false, 15);
         Log.i(TAG, "OTP Generated - " + otp);
 
         //send back response

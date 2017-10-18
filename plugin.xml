@@ -33,5 +33,6 @@
     <source-file src="src/android/OtpGenerator.java" target-dir="src/com/otp/plugins" />
     <source-file src="src/android/HOTP.java" target-dir="src/com/otp/generator" />
     <source-file src="src/android/TOTP.java" target-dir="src/com/otp/generator" />
+    <source-file src="src/android/PasscodeGenerator.java" target-dir="src/com/otp/generator" />
   </platform>
 </plugin>
